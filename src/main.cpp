@@ -39,8 +39,8 @@ int main() {
     }
 
     // Print the final row of slots
-    for (int c = 1; c <= rows + 1; ++c)
-        std::cout << (c == ballPos ? GREEN + std::to_string(c) + RESET : std::to_string(c)) << " ";
+    for (int c = 1; c <= rows + 1 ; ++c)
+        std::cout << (c == ballPos + 1 ? GREEN + std::to_string(c) + RESET : std::to_string(c)) << " ";
 
     std::cout << "\nBall path: ";
     for (const char dir : path) std::cout << dir << ' ';
