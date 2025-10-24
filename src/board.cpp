@@ -18,9 +18,11 @@ int Board::totalPegCount() const {
 
 std::vector<char> Board::dropBall() const {
     std::vector<char> path;
-    for (int r = 0; r < rows_; ++r) {
-        char dir = std::rand() % 2 == 0 ? 'L' : 'R';
-        path.push_back(dir);
+    for (auto& row : pegs_) {
+        for (auto& peg : row) {
+            path.push_back(peg.hit());
+            break; // one peg hit per row for now
+        }
     }
     return path;
 }

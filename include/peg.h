@@ -3,5 +3,5 @@
 class Peg {
 public:
     // returns 'L' or 'R'
-    char hit();
+    char hit() const;
 };
