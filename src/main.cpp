@@ -7,7 +7,7 @@
 
 int main() {
     constexpr int rows = 5;
-    Board board(rows);
+    const Board board(rows);
 
     std::cout << "🎰 Pachinko Board\n\n";
 
