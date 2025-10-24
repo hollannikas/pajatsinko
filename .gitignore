@@ -1,2 +1,7 @@
 # Ignore JetBrains/CLion project settings
 .idea/
+
+# Ignore build directories
+build/
+cmake-build-debug/
+cmake-build-debug-coverage/
