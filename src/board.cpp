@@ -15,3 +15,12 @@ int Board::totalPegCount() const {
     for (const auto& row : pegs_) count += row.size();
     return count;
 }
+
+std::vector<char> Board::dropBall() const {
+    std::vector<char> path;
+    for (int r = 0; r < rows_; ++r) {
+        char dir = std::rand() % 2 == 0 ? 'L' : 'R';
+        path.push_back(dir);
+    }
+    return path;
+}
