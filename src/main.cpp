@@ -20,7 +20,7 @@ int main() {
 
     for (int r = 0; r < rows; ++r) {
         // indent for pyramid shape
-        std::cout << std::string(rows - r - 1, ' ');
+        std::cout << std::string(rows - r, ' ');
 
         for (int c = 0; c <= r; ++c) {
             if (c == ballPos) {
@@ -37,6 +37,10 @@ int main() {
             ++ballPos;
         }
     }
+
+    // Print the final row of slots
+    for (int c = 1; c <= rows + 1; ++c)
+        std::cout << (c == ballPos ? GREEN + std::to_string(c) + RESET : std::to_string(c)) << " ";
 
     std::cout << "\nBall path: ";
     for (const char dir : path) std::cout << dir << ' ';
