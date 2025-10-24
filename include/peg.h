@@ -1,7 +1,13 @@
 #pragma once
+#include <random>
 
 class Peg {
 public:
-    // returns 'L' or 'R'
-    [[nodiscard]] static char hit();
+    Peg();
+
+    [[nodiscard]] char hit() const;
+
+private:
+    static thread_local std::mt19937 engine_;
+    static thread_local std::uniform_int_distribution<int> dist_;
 };

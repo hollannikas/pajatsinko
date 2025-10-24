@@ -29,7 +29,7 @@ std::vector<char> Board::dropBall() const {
             dir = forcedHits_[i++];
         } else {
             // Otherwise use peg hit
-            dir = std::vector<Peg>::value_type::hit();
+            dir = pegs_[r].front().hit();
         }
 
         path.push_back(dir);
@@ -39,9 +39,9 @@ std::vector<char> Board::dropBall() const {
 }
 
 int Board::dropBallFinalSlot() const {
-    auto path = dropBall(); // reuse logic
+    const auto path = dropBall(); // reuse logic
     int position = 0;
-    for (char dir : path) {
+    for (const char dir : path) {
         if (dir == 'R') ++position;
     }
     return position;
