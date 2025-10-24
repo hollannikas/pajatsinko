@@ -16,7 +16,7 @@ int main() {
 
     int ballPos = 0;
 
-    std::cout << "Board (" << GREEN << "O" << RESET " = ball hit, o = peg):\n\n";
+    std::cout << "Board (" << GREEN << "o" << RESET " = ball hit, . = peg):\n\n";
 
     for (int r = 0; r < rows; ++r) {
         // indent for pyramid shape
@@ -25,9 +25,9 @@ int main() {
         for (int c = 0; c <= r; ++c) {
             if (c == ballPos) {
                 // Print green O for ball hit
-                std::cout << GREEN << "O " << RESET;
+                std::cout << GREEN << "o " << RESET;
             } else {
-                std::cout << "o ";
+                std::cout << ". ";
             }
         }
         std::cout << '\n';
