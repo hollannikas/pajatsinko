@@ -1,21 +1,38 @@
 #include <iostream>
+#include <string>
 #include "board.h"
 
 int main() {
-    std::cout << "🎰 Welcome to Pachinko!\n";
+    constexpr int rows = 5;
+    Board board(rows);
 
-    Board board(5);  // create a board with 5 rows
+    std::cout << "🎰 Pachinko Board\n\n";
 
     // Drop one ball
-    auto path = board.dropBall();
-    int finalSlot = board.dropBallFinalSlot();
+    const auto path = board.dropBall();
 
-    std::cout << "Ball path: ";
-    for (char dir : path)
-        std::cout << dir << ' ';
-    std::cout << "\n";
+    int ballPos = 0;
 
-    std::cout << "Ball landed in slot: " << finalSlot << "\n";
+    std::cout << "Board (O = ball hit, o = peg):\n\n";
+
+    for (int r = 0; r < rows; ++r) {
+        // indent for pyramid shape
+        std::cout << std::string(rows - r - 1, ' ');
+
+        for (int c = 0; c <= r; ++c) {
+            std::cout << (c == ballPos ? "O " : "o ");
+        }
+        std::cout << '\n';
+
+        // move ballPos according to path
+        if (static_cast<size_t>(r) < path.size() && path[r] == 'R') {
+            ++ballPos;
+        }
+    }
+
+    std::cout << "\nBall path: ";
+    for (const char dir : path) std::cout << dir << ' ';
+    std::cout << "\nBall landed in slot: " << ballPos << "\n";
 
     return 0;
 }
