@@ -2,7 +2,7 @@
 
 # Pajatsinko (C++ learning project)
 
-I wanted to try out what modern C++ feels like after a 35‑year break. This little project is a simple pachinko/pajatso simulator I used to re‑acquaint myself with the language, toolchain, testing, and CI.
+I wanted to try out what modern C++ feels like after a 25‑year break. This little project is a simple pachinko/pajatso simulator I used to re‑acquaint myself with the language, toolchain, testing, and CI.
 
 
 ## What it is
